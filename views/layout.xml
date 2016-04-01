@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+    <data>
+
+<!-- Customize header  -->
+<template id="header" inherit_id="website.layout" name="Custom Header">
+
+	<!-- Assign an id  -->
+	<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
+		<attribute name="id">custom-header</attribute>
+	</xpath>
+
+	<!-- Add on top of site the Cart and Log in/out items -->
+	<xpath expr="//div[@id='wrapwrap']/header/div" position="before">
+		<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+		<div class="navbar navbar-default navbar-static-first">
+			<div class="container">
+				<ul>
+					<li>
+					  <a href="/shop/cart">
+						  <i class="fa fa-shopping-cart"></i>
+						  My cart <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
+					  </a>
+					</li>
+					<li groups="base.group_public">
+						<a t-attf-href="/web/login"><b>Sign in</b></a>
+					</li>
+					<li t-if="website.user_id != user_id">
+						<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</xpath>
+</template>
+
+<!-- Overwrite the default header menu taking off Cart and Log out items -->
+<template id="layout" inherit_id="website.layout" name="Menu hide Cart">
+	<xpath expr="//ul[@id='top_menu']" position="replace">
+    <ul class="nav navbar-nav navbar-right" id="top_menu">
+      <t t-foreach="website.menu_id.child_id" t-as="submenu">
+          <t t-call="website.submenu"/>
+      </t>
+    </ul>
+	</xpath>
+</template>
+
+<!-- Overwrite the default header menu taking off Log in item -->
+<template id="show_sign_in" inherit_id="website.show_sign_in" name="Menu hide Sign">
+	<xpath expr="//ul[@id='top_menu']" position="replace">
+		<ul class="nav navbar-nav navbar-right" id="top_menu">
+			<t t-foreach="website.menu_id.child_id" t-as="submenu">
+				<t t-call="website.submenu"/>
+			</t>
+		</ul>
+	</xpath>
+</template>
+
+<!-- Overwrite the default website front-end menu taking off the Customize theme item -->
+<template id="user_navbar" inherit_id="website.user_navbar" groups="base.group_user">
+	<xpath expr="//li[@id='customize-menu']" position="replace">
+		<t t-if="website and menu_data">
+			<li class="dropdown" id="customize-menu" groups="base.group_website_designer">
+				<a id="customize-menu-button" class="dropdown-toggle" data-toggle="dropdown" href="#">Customize <span class="caret"></span></a>
+				<ul class="dropdown-menu" role="menu">
+					<li><a href="#advanced-view-editor" data-action='ace'>HTML Editor</a></li>
+					<li><a href="/web#return_label=Website&amp;action=website.action_module_website">Install Apps</a></li>
+					<li class="divider"></li>
+				</ul>
+			</li>
+		</t>
+	</xpath>
+</template>
+
+<!-- Hide top and bottom cover for single post page -->
+<template id="blog_post_complete" inherit_id="website_blog.blog_post_complete" name="Blog Post">
+  <xpath expr="//div[@id='title']" position="replace">
+    <div id="title">
+      <div class="blog_title">
+        <h1 t-field="blog_post.name" id="blog_post_name" t-att-data-blog-id="blog_post.id"/>
+        <h2 t-field="blog_post.subtitle"/>
+        <p class="post-meta text-muted text-center" name="blog_post_data"/>
+        <div>
+          <span t-field="blog_post.author_avatar" t-field-options='{"widget": "image", "class": "img-circle", "style":"width: 30px; margin-right: 10px; display:inline"}' />
+          <span t-field="blog_post.author_id" style="display: inline-block;" t-field-options='{
+              "widget": "contact",
+              "fields": ["name"]
+          }'/>
+        </div>
+      </div>
+    </div>
+	</xpath>
+  <xpath expr="//div[@class='cover cover_footer mb0 text-center']" position="replace">
+    <div class="blog_title">
+      <h1 t-field="next_post.name"/>
+      <h2 t-field="next_post.subtitle"/>
+      <div>
+        <span t-field="next_post.author_avatar" t-field-options='{"widget": "image", "class": "img-circle", "style":"width: 30px; margin-right: 10px; display:inline"}' />
+        <span t-field="next_post.author_id" style="display: inline-block;" t-field-options='{
+                "widget": "contact",
+                "fields": ["name"]
+            }'/>
+      </div>
+      <p class="mt32">Read Next <span class="fa fa-long-arrow-right"/></p>
+    </div>
+  </xpath>
+</template>
+
+<!-- Hide price and add to cart button on single product pages for non-italian language pages -->
+<template id="product" inherit_id="website_sale.product" active="True" customize_show="False" name="Valier Product">
+  <xpath expr="//a[@id='add_to_cart']" position="replace">
+    <t t-if="lang == 'it_IT'">
+      <a id="add_to_cart" class="btn btn-primary btn-lg mt8 js_check_product a-submit" href="#">Add to Cart</a>
+    </t>
+  </xpath>
+</template>
+<template id="product_quantity" inherit_id="website_sale.product_quantity" name="Valier Select Quantity">
+  <xpath expr="//div[@class='css_quantity input-group oe_website_spinner']" position="replace">
+    <t t-if="lang == 'it_IT'">
+      <div class="css_quantity input-group oe_website_spinner">
+        <span class="input-group-addon">
+          <a t-attf-href="#" class="mb8 js_add_cart_json">
+              <i class="fa fa-minus"></i>
+          </a>
+        </span>
+        <input type="text" class="js_quantity form-control" data-min="1" name="add_qty" value="1"/>
+        <span class="input-group-addon">
+          <a t-attf-href="#" class="mb8 float_left js_add_cart_json">
+              <i class="fa fa-plus"></i>
+          </a>
+        </span>
+      </div>
+    </t>
+  </xpath>
+</template>
+
+<!-- Modify Totals in shop/cart -->
+<template id="total" inherit_id="website_sale.total" priority="5">
+  <xpath expr="//table[@id='cart_total']" position="replace">
+    <table class='pull-right mb16' id="cart_total" t-if="website_sale_order">
+      <thead>
+        <tr width="120" class="text-muted" id="order_total_taxes">
+        </tr>
+        <tr width="100" style="border-bottom: 1px solid #000" id="order_total">
+          <th><h3>Total: </h3></th>
+          <th class="text-right">
+            <h3><span t-field="website_sale_order.amount_total" style="white-space: nowrap;" t-field-options='{
+                "widget": "monetary",
+                "from_currency": "website_sale_order.pricelist_id.currency_id",
+                "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+              }'/></h3>
+          </th>
+        </tr>
+      </thead>
+    </table>
+  </xpath>
+</template>
+
+<!-- Customize default custom footer -->
+<template id="footer_custom" inherit_id="website.footer_custom" name="Footer" priority="-5">
+    <xpath expr="//div[@id='footer']" position="replace">
+      <div id="footer" class="container hidden-print">
+        <div class="oe_structure">
+
+        </div>
+      </div>
+    </xpath>
+</template>
+
+<!-- Hide the Odoo logo on footer -->
+<template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" name="Hide Footer Copyright">
+    <xpath expr="//div[@class='container mt16 mb8']" position="replace">
+        <div class="container mt16 mb8">
+            <div class="pull-right">
+                Qui le info azienda?
+                <a class="label label-danger" href="http://www.odoo.com/page/website-builder">Valier!</a>
+            </div>
+            <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
+                Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
+            </div>
+        </div>
+    </xpath>
+</template>
+
+	</data>
+</openerp>

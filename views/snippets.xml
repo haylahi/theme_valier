@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<openerp>
+	<data>
+
+<template id="custom_footer_sitemap" name="Sitemap Menu">
+	<section class="sitemap-menu">
+      <div class="row">
+        <div class="col-md-3">
+					<h4 class="mt16">Azienda</h4>
+					<ul class="list-unstyled">
+						<li>Campagna</li>
+						<li>Impatto ambientale</li>
+						<li>Noceti</li>
+					</ul>
+        </div>
+        <div class="col-md-3">
+					<h4 class="mt16">Prodotti</h4>
+					<ul class="list-unstyled">
+						<li>Esempio</li>
+						<li>a</li>
+					</ul>
+        </div>
+        <div class="col-md-3">
+					<h4 class="mt16">Clienti</h4>
+					<ul class="list-unstyled">
+						<li>Privati</li>
+						<li>Gruppi d'Acquisto</li>
+						<li>Ristorazione</li>
+						<li>Aziende</li>
+					</ul>
+        </div>
+				<div class="col-md-3">
+					<h4 class="mt16">Contatti</h4>
+					<ul class="list-unstyled">
+						<li>Dove siamo</li>
+						<li>Assistenza</li>
+					</ul>
+        </div>
+      </div>
+	</section>
+</template>
+
+<template id="place_into_bar" inherit_id="website.snippets" name="Place into bar">
+  <xpath expr="//div[@id='snippet_structure']" position="inside">
+    <t t-snippet="theme_valier.custom_footer_sitemap"
+       t-thumbnail="/theme_valier/static/src/img/ui/snippet_thumb.jpg"/>
+  </xpath>
+</template>
+
+	</data>
+</openerp>
