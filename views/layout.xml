@@ -13,10 +13,16 @@
 	<!-- Add on top of site the Cart and Log in/out items -->
 	<xpath expr="//div[@id='wrapwrap']/header/div" position="before">
 		<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
-		<div class="navbar navbar-default navbar-static-first">
+		<div class="navbar-static-first">
 			<div class="container">
-				<ul>
-					<li>
+				<ul class="nav">
+          <li class="ico ico-address">
+            <a href="contatti/dove-siamo/" title="Dove siamo">Via Canalbianco sx, 10 | Borsea (RO)</a>
+          </li>
+  				<li class="ico ico-phone">
+            <a href="tel:+390425474575" title="Chiama l'Az. Agr. Valier" alt="Numero di telefono Valier, eccellenze alimentari">0425 474575</a>
+          </li>
+          <li>
 					  <a href="/shop/cart">
 						  <i class="fa fa-shopping-cart"></i>
 						  My cart <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
@@ -53,22 +59,6 @@
 				<t t-call="website.submenu"/>
 			</t>
 		</ul>
-	</xpath>
-</template>
-
-<!-- Overwrite the default website front-end menu taking off the Customize theme item -->
-<template id="user_navbar" inherit_id="website.user_navbar" groups="base.group_user">
-	<xpath expr="//li[@id='customize-menu']" position="replace">
-		<t t-if="website and menu_data">
-			<li class="dropdown" id="customize-menu" groups="base.group_website_designer">
-				<a id="customize-menu-button" class="dropdown-toggle" data-toggle="dropdown" href="#">Customize <span class="caret"></span></a>
-				<ul class="dropdown-menu" role="menu">
-					<li><a href="#advanced-view-editor" data-action='ace'>HTML Editor</a></li>
-					<li><a href="/web#return_label=Website&amp;action=website.action_module_website">Install Apps</a></li>
-					<li class="divider"></li>
-				</ul>
-			</li>
-		</t>
 	</xpath>
 </template>
 
@@ -139,6 +129,7 @@
   <xpath expr="//table[@id='cart_total']" position="replace">
     <table class='pull-right mb16' id="cart_total" t-if="website_sale_order">
       <thead>
+        <!-- <tr> below not to break the inheritance process -->
         <tr width="120" class="text-muted" id="order_total_taxes">
         </tr>
         <tr width="100" style="border-bottom: 1px solid #000" id="order_total">
@@ -154,6 +145,11 @@
       </thead>
     </table>
   </xpath>
+</template>
+
+<!-- Modify Totals in shop/checkout -->
+<template id="checkout" inherit_id="website_sale.checkout">
+
 </template>
 
 <!-- Customize default custom footer -->
