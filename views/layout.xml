@@ -15,29 +15,48 @@
 		<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
 		<div class="navbar-static-first">
 			<div class="container">
-				<ul class="nav">
+        <ul class="nav nav-language">
+          <li>
+            <a href="#">Italiano</a>
+          </li>
+          <li>
+            <a href="#">English</a>
+          </li>
+        </ul>
+				<ul class="nav nav-tools">
+          <!--
           <li class="ico ico-address">
             <a href="contatti/dove-siamo/" title="Dove siamo">Via Canalbianco sx, 10 | Borsea (RO)</a>
           </li>
   				<li class="ico ico-phone">
             <a href="tel:+390425474575" title="Chiama l'Az. Agr. Valier" alt="Numero di telefono Valier, eccellenze alimentari">0425 474575</a>
           </li>
-          <li>
-					  <a href="/shop/cart">
-						  <i class="fa fa-shopping-cart"></i>
-						  My cart <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
-					  </a>
-					</li>
+        -->
 					<li groups="base.group_public">
 						<a t-attf-href="/web/login"><b>Sign in</b></a>
 					</li>
 					<li t-if="website.user_id != user_id">
 						<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
 					</li>
+          <li>
+					  <a href="/shop/cart">
+						  <i class="fa fa-shopping-cart"></i>
+						  My cart <sup t-attf-class="my_cart_quantity label label-primary" t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
+					  </a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</xpath>
+</template>
+
+<!-- Overwrite the option to show logo and hardcode it -->
+<template id="layout_logo_show-custom" inherit_id="website.layout_logo_show" customize_show="False" >
+    <xpath expr="//a[@class='navbar-brand logo']" position="replace">
+        <a href="/" class="navbar-brand logo-custom">
+            <img src="/theme_valier/static/src/img/logo-valier.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" width="354px" height="62px" />
+        </a>
+    </xpath>
 </template>
 
 <!-- Overwrite the default header menu taking off Cart and Log out items -->

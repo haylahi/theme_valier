@@ -28,50 +28,68 @@ azzurro: 174c4e
 .blog_title {
 	text-align: center;
 }
-#custom-header .navbar-static-first {
+.navbar-static-first {
 	background-color: #1e6622;
 	border: none;
 	border-radius: 0;
+	font-size: 13px;
+	height: 30px;
 }
-#custom-header .navbar.navbar-static-first {
+.navbar.navbar-static-first {
     margin-bottom: 0;
 }
-.navbar-default {
+.navbar-static-top {
 	background-color: #ffd97c;
 }
-#custom-header .navbar-default .navbar-nav > .active > a, #custom-header .navbar-default .navbar-nav a:hover, #custom-header .navbar-default .navbar-nav a:focus {
+.navbar-static-top .navbar-nav > .active > a, .navbar-static-top .navbar-nav a:hover, .navbar-static-top .navbar-nav a:focus {
     border-bottom: 5px solid #336633;
     color: #336633;
     background: none;
 }
-#custom-header .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+.navbar-static-top .navbar-nav > li > a:hover, .navbar-static-top .navbar-nav > li > a:focus {
     color: #336633;
 }
-#custom-header .navbar-right {
+.navbar-static-top .navbar-right {
 	font-family: 'Yanone Kaffeesatz',Arial;
-	margin: 8px 0 0 0;
+	margin: 15px 0 0 0;
 }
-#custom-header .nav > li {
+.navbar-static-top .nav > li {
     margin: 0 5px;
 }
-#custom-header .navbar-nav > li > a {
+.navbar-static-first .nav-language {
+	float: left;
+}
+.navbar-static-top .navbar-nav > li > a {
 	padding: 0 10px;
-    text-transform: uppercase;
-    line-height: 32px;
-    font-size: 28px;
-    font-weight: 300;
-    border-bottom: 5px solid transparent;
-    transition: all .6s;
+  text-transform: uppercase;
+  line-height: 32px;
+  font-size: 28px;
+  font-weight: 300;
+  border-bottom: 5px solid transparent;
+  transition: all .6s;
 	color: #825026;
 }
-.nav > li {
+.navbar-static-first li > a {
+	padding: 5px 7px;
+}
+#custom-header .nav-language > li {
 	float:left;
 }
-.nav > li > a {
+#custom-header .nav-tools > li {
+	float:right;
+}
+.navbar-static-first .nav > li > a {
 	color: #ffd97c;
 }
-.nav > li > a:hover, .nav > li > a:focus {
+#custom-header .nav > li > a:hover, #custom-header .nav > li > a:focus {
 		background: none;
+}
+#custom-header .navbar-brand {
+	height: 65px;
+	padding: 3px 0;
+}
+header#custom-header a.navbar-brand img {
+	max-height: 70px;
 }
 
 #wrapwrap > footer {
