@@ -17,10 +17,16 @@
 			<div class="container">
         <ul class="nav nav-language">
           <li>
-            <a href="#">Italiano</a>
+            <a href="#">
+              <i class="fa fa-flag"></i>
+              Italiano
+            </a>
           </li>
+          <li class="divider"></li>
           <li>
-            <a href="#">English</a>
+            <a href="#">
+              English
+            </a>
           </li>
         </ul>
 				<ul class="nav nav-tools">
@@ -33,10 +39,16 @@
           </li>
         -->
 					<li groups="base.group_public">
-						<a t-attf-href="/web/login"><b>Sign in</b></a>
+						<a t-attf-href="/web/login">
+              <i class="fa fa-sign-in"></i>
+              Sign in
+            </a>
 					</li>
 					<li t-if="website.user_id != user_id">
-						<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">Logout</a>
+						<a t-attf-href="/web/session/logout?redirect=/" role="menuitem">
+              <i class="fa fa-sign-out"></i>
+              Logout
+            </a>
 					</li>
           <li>
 					  <a href="/shop/cart">
@@ -188,7 +200,7 @@
         <div class="container mt16 mb8">
             <div class="pull-right">
                 Qui le info azienda?
-                <a class="label label-danger" href="http://www.odoo.com/page/website-builder">Valier!</a>
+                <a class="label label-warning" href="http://www.odoo.com/page/website-builder">Valier!</a>
             </div>
             <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
                 Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>

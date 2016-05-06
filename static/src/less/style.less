@@ -14,7 +14,7 @@ azzurro: 174c4e
 
 */
 
-@brand-primary:         lighten(#174c4e, 30%);
+@brand-primary:         lighten(#663300, 10%);
 @brand-success:         #1e6622;
 @brand-info:            #ffd97c;
 @brand-warning:         #FF9900;
@@ -23,7 +23,7 @@ azzurro: 174c4e
 @font-family-sans-serif:  "Roboto", Arial, sans-serif;
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 
-@link-color:						#663300;
+@link-color:						lighten(#663300, 5%);;
 
 .blog_title {
 	text-align: center;
@@ -36,22 +36,22 @@ azzurro: 174c4e
 	height: 30px;
 }
 .navbar.navbar-static-first {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 .navbar-static-top {
 	background-color: #ffd97c;
 }
 .navbar-static-top .navbar-nav > .active > a, .navbar-static-top .navbar-nav a:hover, .navbar-static-top .navbar-nav a:focus {
-    border-bottom: 5px solid #336633;
-    color: #336633;
-    background: none;
+  border-bottom: 5px solid #336633;
+  color: #336633;
+  background: none;
 }
 .navbar-static-top .navbar-nav > li > a:hover, .navbar-static-top .navbar-nav > li > a:focus {
-    color: #336633;
+  color: #336633;
 }
 .navbar-static-top .navbar-right {
 	font-family: 'Yanone Kaffeesatz',Arial;
-	margin: 15px 0 0 0;
+	margin: 21px 0 0 0;
 }
 .navbar-static-top .nav > li {
     margin: 0 5px;
@@ -67,10 +67,11 @@ azzurro: 174c4e
   font-weight: 300;
   border-bottom: 5px solid transparent;
   transition: all .6s;
-	color: #825026;
+	color: lighten(#663300, 5%);
 }
 .navbar-static-first li > a {
-	padding: 5px 7px;
+	padding: 0;
+	margin: 5px 10px;
 }
 #custom-header .nav-language > li {
 	float:left;
@@ -78,11 +79,19 @@ azzurro: 174c4e
 #custom-header .nav-tools > li {
 	float:right;
 }
-.navbar-static-first .nav > li > a {
+.navbar-static-first li a {
 	color: #ffd97c;
+}
+.navbar-static-first li a:hover {
+	font-weight: 700;
 }
 #custom-header .nav > li > a:hover, #custom-header .nav > li > a:focus {
 		background: none;
+}
+.navbar-static-first li.divider {
+    margin-top: 5px;
+    padding-top: 20px;
+    border-right: 1px solid #ffd97c;
 }
 #custom-header .navbar-brand {
 	height: 65px;
@@ -97,7 +106,49 @@ header#custom-header a.navbar-brand img {
 	color: #ffd97c;
 }
 #wrapwrap > footer a {
-	color: #825026;
+	color: lighten(#663300, 5%);
+}
+.fa {
+	padding: 0 2px;
+}
+h1, h2 {
+	font-family: 'Yanone Kaffeesatz',Arial;
+}
+h1 {
+	text-transform: uppercase;
+}
+h2 {
+	text-align: right;
+	clear: both;
+	padding: 0px 0px 4px 0;
+	margin: 10px 0;
+	border-bottom: 1px solid #fb1;
+	text-transform: lowercase;
+	color: #a67806;
+}
+.input-group-addon {
+  background-color: #ffd97c;
+}
+.btn-default {
+  background-color: #ffd97c;
+}
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+  background: #ffd97c;
+  border-color: #ddd;
+}
+.label {
+	margin: 3px;
+}
+.oe_product {
+	border: none;
+}
+.sitemap-menu h4 {
+	font-weight: 300;
+	font-family: 'Yanone Kaffeesatz',Arial;
+	text-transform: uppercase;
+}
+.sitemap-menu ul {
+	margin-left: 10px;
 }
 
 .btn-default {}
