@@ -4,7 +4,8 @@
 
 <template id="custom_footer_sitemap" name="Sitemap Menu">
 	<section class="sitemap-menu">
-      <div class="row">
+    <div class="row">
+			<div class="col-md-8">
         <div class="col-md-3">
 					<h4 class="mt16">Azienda</h4>
 					<ul class="list-unstyled">
@@ -36,14 +37,19 @@
 						<li>Assistenza</li>
 					</ul>
         </div>
-      </div>
+			</div>
+			<div class="col-md-4">
+				<h4>AZIENDA AGRICOLA VALIER</h4>
+				<hr />
+				<small>Una realtà giovane ed affidabile che propone prodotti ricercati e raffinati, attenta all'impatto ambientale etc etc</small>
+			</div>
+    </div><!-- .row -->
 	</section>
 </template>
 
 <template id="place_into_bar" inherit_id="website.snippets" name="Place into bar">
   <xpath expr="//div[@id='snippet_structure']" position="inside">
-    <t t-snippet="theme_valier.custom_footer_sitemap"
-       t-thumbnail="/theme_valier/static/src/img/ui/snippet_thumb.jpg"/>
+    <t t-snippet="theme_valier.custom_footer_sitemap" t-thumbnail="/theme_valier/static/src/img/ui/snippet_thumb.jpg" />
   </xpath>
 </template>
 

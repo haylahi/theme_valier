@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <openerp>
-    <data>
+  <data>
 
 <!-- Customize header  -->
 <template id="header" inherit_id="website.layout" name="Custom Header">
-
 	<!-- Assign an id  -->
 	<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
 		<attribute name="id">custom-header</attribute>
 	</xpath>
-
 	<!-- Add on top of site the Cart and Log in/out items -->
 	<xpath expr="//div[@id='wrapwrap']/header/div" position="before">
 		<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
@@ -64,11 +62,11 @@
 
 <!-- Overwrite the option to show logo and hardcode it -->
 <template id="layout_logo_show-custom" inherit_id="website.layout_logo_show" customize_show="False" >
-    <xpath expr="//a[@class='navbar-brand logo']" position="replace">
-        <a href="/" class="navbar-brand logo-custom">
-            <img src="/theme_valier/static/src/img/logo-valier.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" width="354px" height="62px" />
-        </a>
-    </xpath>
+  <xpath expr="//a[@class='navbar-brand logo']" position="replace">
+    <a href="/" class="navbar-brand logo-custom">
+      <img src="/theme_valier/static/src/img/logo-valier.png" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name" width="354px" height="62px" />
+    </a>
+  </xpath>
 </template>
 
 <!-- Overwrite the default header menu taking off Cart and Log out items -->
@@ -185,28 +183,29 @@
 
 <!-- Customize default custom footer -->
 <template id="footer_custom" inherit_id="website.footer_custom" name="Footer" priority="-5">
-    <xpath expr="//div[@id='footer']" position="replace">
-      <div id="footer" class="container hidden-print">
-        <div class="oe_structure">
+  <xpath expr="//div[@id='footer']" position="replace">
+    <div id="footer" class="container hidden-print">
+      <div class="oe_structure">
 
-        </div>
       </div>
-    </xpath>
+    </div>
+  </xpath>
 </template>
 
 <!-- Hide the Odoo logo on footer -->
 <template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" name="Hide Footer Copyright">
-    <xpath expr="//div[@class='container mt16 mb8']" position="replace">
-        <div class="container mt16 mb8">
-            <div class="pull-right">
-                Qui le info azienda?
-                <a class="label label-warning" href="http://www.odoo.com/page/website-builder">Valier!</a>
-            </div>
-            <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
-                Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
-            </div>
-        </div>
-    </xpath>
+  <xpath expr="//div[@class='container mt16 mb8']" position="replace">
+    <div class="container mt16 mb8">
+      <div class="pull-right">
+        <small>Azienda Agricola Valier s.s. soc. agr. ©<br />
+        Partita IVA IT01353530296</small><br />
+        <a class="label label-warning" href="#">Contattaci!</a>
+      </div>
+      <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
+          Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
+      </div>
+      </div>
+  </xpath>
 </template>
 
 	</data>
