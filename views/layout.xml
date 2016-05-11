@@ -186,8 +186,53 @@
   <xpath expr="//div[@id='footer']" position="replace">
     <div id="footer" class="container hidden-print">
       <div class="oe_structure">
-
+        <!-- place to put snippets-->
       </div>
+
+      <div class="row sitemap-menu">
+  			<div class="col-md-8">
+          <div class="col-md-3">
+  					<h4 class="mt16">Azienda</h4>
+  					<ul class="list-unstyled">
+  						<li>Campagna</li>
+  						<li>Impatto ambientale</li>
+  						<li>Noceti</li>
+  					</ul>
+          </div>
+          <div class="col-md-3">
+  					<h4 class="mt16">Prodotti</h4>
+  					<ul class="list-unstyled">
+  						<li>Esempio</li>
+  						<li>a</li>
+  					</ul>
+          </div>
+          <div class="col-md-3">
+  					<h4 class="mt16">Clienti</h4>
+  					<ul class="list-unstyled">
+  						<li>Privati</li>
+  						<li>Gruppi d'Acquisto</li>
+  						<li>Ristorazione</li>
+  						<li>Aziende</li>
+  					</ul>
+          </div>
+  				<div class="col-md-3">
+  					<h4 class="mt16">Contatti</h4>
+  					<ul class="list-unstyled">
+  						<li>Dove siamo</li>
+  						<li>Assistenza</li>
+  					</ul>
+          </div>
+  			</div>
+  			<div class="col-md-4">
+  				<h4>AZIENDA AGRICOLA VALIER</h4>
+  				<small>
+            Coltiviamo con passione le nostre noci e ne ricaviamo prodotti unici: dalla crema all'olio, dai canditi al nocino.
+            <hr />
+            <i class="fa fa-map-marker" aria-hidden="true"></i> Via Canalbianco sx 10 - Rovigo<br />
+            <i class="fa fa-calendar-o" aria-hidden="true"></i> Lun. - Ven. 9 - 17 | <i class="fa fa-phone" aria-hidden="true"></i> Tel. 0425 474575
+          </small>
+  			</div>
+      </div><!-- .row -->
     </div>
   </xpath>
 </template>
@@ -196,13 +241,13 @@
 <template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" name="Hide Footer Copyright">
   <xpath expr="//div[@class='container mt16 mb8']" position="replace">
     <div class="container mt16 mb8">
-      <div class="pull-right">
+      <!-- <div class="pull-right">
         <small>Azienda Agricola Valier s.s. soc. agr. ©<br />
         Partita IVA IT01353530296</small><br />
         <a class="label label-warning" href="#">Contattaci!</a>
-      </div>
-      <div class="pull-left text-muted" itemscope="itemscope" itemtype="http://schema.org/Organization">
-          Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name</span>
+      </div> -->
+      <div class="pull-right" itemscope="itemscope" itemtype="http://schema.org/Organization">
+          Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name </span>
       </div>
       </div>
   </xpath>
