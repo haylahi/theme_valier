@@ -191,46 +191,51 @@
 
       <div class="row sitemap-menu">
   			<div class="col-md-8">
-          <div class="col-md-3">
-  					<h4 class="mt16">Azienda</h4>
-  					<ul class="list-unstyled">
-  						<li>Campagna</li>
-  						<li>Impatto ambientale</li>
-  						<li>Noceti</li>
-  					</ul>
-          </div>
-          <div class="col-md-3">
-  					<h4 class="mt16">Prodotti</h4>
-  					<ul class="list-unstyled">
-  						<li>Esempio</li>
-  						<li>a</li>
-  					</ul>
-          </div>
-          <div class="col-md-3">
-  					<h4 class="mt16">Clienti</h4>
-  					<ul class="list-unstyled">
-  						<li>Privati</li>
-  						<li>Gruppi d'Acquisto</li>
-  						<li>Ristorazione</li>
-  						<li>Aziende</li>
-  					</ul>
-          </div>
-  				<div class="col-md-3">
-  					<h4 class="mt16">Contatti</h4>
-  					<ul class="list-unstyled">
-  						<li>Dove siamo</li>
-  						<li>Assistenza</li>
-  					</ul>
+          <div class="row">
+            <div class="col-md-3">
+    					<div class="menu_title mt16 mb8">Azienda</div>
+    					<ul class="list-unstyled">
+    						<li>Campagna</li>
+    						<li>Impatto ambientale</li>
+    						<li>Noceti</li>
+    					</ul>
+            </div>
+            <div class="col-md-3">
+    					<div class="menu_title mt16 mb8">Prodotti</div>
+    					<ul class="list-unstyled">
+    						<li>Esempio</li>
+    						<li>a</li>
+    					</ul>
+            </div>
+            <div class="col-md-3">
+    					<div class="menu_title mt16 mb8">Clienti</div>
+    					<ul class="list-unstyled">
+    						<li>Privati</li>
+    						<li>Gruppi d'Acquisto</li>
+    						<li>Ristorazione</li>
+    						<li>Aziende</li>
+    					</ul>
+            </div>
+    				<div class="col-md-3">
+    					<div class="menu_title mt16 mb8">Contatti</div>
+    					<ul class="list-unstyled">
+    						<li>Dove siamo</li>
+    						<li>Assistenza</li>
+    					</ul>
+            </div>
           </div>
   			</div>
   			<div class="col-md-4">
-  				<h4>AZIENDA AGRICOLA VALIER</h4>
-  				<small>
-            Coltiviamo con passione le nostre noci e ne ricaviamo prodotti unici: dalla crema all'olio, dai canditi al nocino.
+  				<div class="menu_title mt16 mb8">Azienda Agricola Valier</div>
+  				<p><small>
+            Coltiviamo con passione le nostre noci e ne ricaviamo prodotti unici:
+            dalla crema all'olio, dai canditi al nocino.<br /> Vendiamo direttamente
+            a privati come anche riforniamo pasticcerie, gelaterie e negozi.
             <hr />
             <i class="fa fa-map-marker" aria-hidden="true"></i> Via Canalbianco sx 10 - Rovigo<br />
-            <i class="fa fa-calendar-o" aria-hidden="true"></i> Lun. - Ven. 9 - 17 | <i class="fa fa-phone" aria-hidden="true"></i> Tel. 0425 474575
-          </small>
+            <i class="fa fa-calendar-o" aria-hidden="true"></i>Uffici: Lun. - Ven. 9 - 17 ~ Negozio: Lun. - Sab. 8 - 18<br />
+            <i class="fa fa-phone" aria-hidden="true"></i> Tel. 0425 474575
+          </small></p>
   			</div>
       </div><!-- .row -->
     </div>
