@@ -13,19 +13,18 @@
 		<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
 		<div class="navbar-static-first">
 			<div class="container">
-        <ul class="nav nav-language">
-          <li>
-            <a href="#">
+        <ul class="nav nav-language" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+          <li t-foreach="languages" t-as="lg">
+            <a
+                t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
+                t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None"
+                t-att-data-lang="lg[0]"
+            >
               <i class="fa fa-flag"></i>
-              Italiano
+              <t t-esc="lg[1].split('/').pop()"/>
             </a>
           </li>
           <li class="divider"></li>
-          <li>
-            <a href="#">
-              English
-            </a>
-          </li>
         </ul>
 				<ul class="nav nav-tools">
           <!--
@@ -242,6 +241,13 @@
   </xpath>
 </template>
 
+<!-- Add legal advice after copyright and company name -->
+<!--<template id="legal_advice_link_custom" inherit_id="website_legal_page.legal_advice_link" name="Custom legal advice Link">
+    <xpath expr="//footer//div/span[@t-field='res_company.name']" position="after">
+        <span> - <a href="/page/legal">Legal advice</a></span>
+    </xpath>
+</template> -->
+
 <!-- Hide the Odoo logo on footer -->
 <template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" name="Hide Footer Copyright">
   <xpath expr="//div[@class='container mt16 mb8']" position="replace">
@@ -251,8 +257,8 @@
         Partita IVA IT01353530296</small><br />
         <a class="label label-warning" href="#">Contattaci!</a>
       </div> -->
-      <div class="pull-right" itemscope="itemscope" itemtype="http://schema.org/Organization">
-          Copyright &amp;copy; <span t-field="res_company.name" itemprop="name">Company name </span>
+      <div class="pull-left" itemscope="itemscope" itemtype="http://schema.org/Organization">
+          All right reserved &amp;copy; <span t-field="res_company.name" itemprop="name">Azienda Agricola Valier s.s. soc. agr. </span> Partita IVA e C.F. 01353530296
       </div>
       </div>
   </xpath>

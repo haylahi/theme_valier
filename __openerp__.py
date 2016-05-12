@@ -1,7 +1,7 @@
 {
   'name':'Theme for valier.it',
   'description': 'Theme for valier.it website',
-  'version':'0.1',
+  'version':'0.2',
   'author':'Paolo Valier',
 
   'data': [
@@ -12,5 +12,16 @@
   ],
 
   'category': 'Theme/Creative',
-  'depends': ['website', 'website_less','website_sale', 'website_blog'],
+  'depends': [
+    'website',
+    'website_less',
+    'website_sale',
+    'website_blog',
+    'website_legal_page',
+    'website_crm_privacy_policy',
+    'website_sale_require_legal',
+    'website_sale_require_login',
+    'website_signup_legal_page_required',
+],
+
 }
