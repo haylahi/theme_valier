@@ -70,28 +70,29 @@ azzurro: 174c4e
 	color: lighten(#663300, 5%);
 }
 .navbar-static-first li > a {
-	padding: 0;
-	margin: 5px 10px;
+	padding: 0 10px;
+	margin: 0 5px;
 }
 #custom-header .nav-language > li {
 	float:left;
+	border-right: 1px solid #ffd97c;
+	margin: 5px 0;
+}
+#custom-header .nav-language > li:last-of-type, #custom-header .nav-language > li:first-of-type {
+	border-right: none;
 }
 #custom-header .nav-tools > li {
 	float:right;
+	margin: 5px 0;
 }
-.navbar-static-first li a {
+.navbar-static-first li, .navbar-static-first li a {
 	color: #ffd97c;
 }
 .navbar-static-first li a:hover {
-	font-weight: 700;
+	color: lighten(#ffd97c, 20%);
 }
 #custom-header .nav > li > a:hover, #custom-header .nav > li > a:focus {
 	background: none;
-}
-.navbar-static-first li.divider {
-  margin-top: 5px;
-  padding-top: 20px;
-  border-right: 1px solid #ffd97c;
 }
 #custom-header .navbar-brand {
 	height: 65px;
@@ -106,7 +107,7 @@ header#custom-header a.navbar-brand img {
 	color: #ffd97c;
 }
 #wrapwrap > footer a {
-	color: lighten(#663300, 5%);
+	color: lighten(#ffd97c, 20%);
 }
  #wrapwrap > footer .menu_title {
 	 color: #ffd97c;
@@ -114,7 +115,7 @@ header#custom-header a.navbar-brand img {
 .fa {
 	padding: 0 2px;
 }
-h1, h2 {
+#wrapwrap h1, #wrapwrap h2, #wrapwrap h3, #wrapwrap h4, #wrapwrap h5, #wrapwrap h6 {
 	font-family: 'Yanone Kaffeesatz',Arial;
 }
 h1 {
@@ -143,7 +144,13 @@ h2 {
 	margin: 3px;
 }
 .oe_product {
-	border: 1px solid #ffd97c;
+	border-right: 1px solid #ffd97c;
+	border-bottom: 1px solid #ffd97c;
+	border-top: none;
+	border-left: none;
+}
+.oe_product_cart h5 {
+  font-size: 18px;
 }
 .sitemap-menu li {
 	font-size: 13px;

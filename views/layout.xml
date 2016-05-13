@@ -14,17 +14,17 @@
 		<div class="navbar-static-first">
 			<div class="container">
         <ul class="nav nav-language" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
+          <li style="margin-right: -10px;"><i class="fa fa-flag"></i></li>
           <li t-foreach="languages" t-as="lg">
             <a
                 t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg[0])"
                 t-att-data-default-lang="editable and 'true' if lg[0] == website.default_lang_code else None"
                 t-att-data-lang="lg[0]"
+                class="js_change_lang"
             >
-              <i class="fa fa-flag"></i>
               <t t-esc="lg[1].split('/').pop()"/>
             </a>
           </li>
-          <li class="divider"></li>
         </ul>
 				<ul class="nav nav-tools">
           <!--
@@ -183,60 +183,63 @@
 <!-- Customize default custom footer -->
 <template id="footer_custom" inherit_id="website.footer_custom" name="Footer" priority="-5">
   <xpath expr="//div[@id='footer']" position="replace">
-    <div id="footer" class="container hidden-print">
+    <div id="footer" class="hidden-print">
       <div class="oe_structure">
-        <!-- place to put snippets-->
+        <!-- place where to put snippets-->
       </div>
-
-      <div class="row sitemap-menu">
-  			<div class="col-md-8">
-          <div class="row">
-            <div class="col-md-3">
-    					<div class="menu_title mt16 mb8">Azienda</div>
-    					<ul class="list-unstyled">
-    						<li>Campagna</li>
-    						<li>Impatto ambientale</li>
-    						<li>Noceti</li>
-    					</ul>
-            </div>
-            <div class="col-md-3">
-    					<div class="menu_title mt16 mb8">Prodotti</div>
-    					<ul class="list-unstyled">
-    						<li>Esempio</li>
-    						<li>a</li>
-    					</ul>
-            </div>
-            <div class="col-md-3">
-    					<div class="menu_title mt16 mb8">Clienti</div>
-    					<ul class="list-unstyled">
-    						<li>Privati</li>
-    						<li>Gruppi d'Acquisto</li>
-    						<li>Ristorazione</li>
-    						<li>Aziende</li>
-    					</ul>
-            </div>
-    				<div class="col-md-3">
-    					<div class="menu_title mt16 mb8">Contatti</div>
-    					<ul class="list-unstyled">
-    						<li>Dove siamo</li>
-    						<li>Assistenza</li>
-    					</ul>
-            </div>
-          </div>
-  			</div>
-  			<div class="col-md-4">
-  				<div class="menu_title mt16 mb8">Azienda Agricola Valier</div>
-  				<p><small>
-            Coltiviamo con passione le nostre noci e ne ricaviamo prodotti unici:
-            dalla crema all'olio, dai canditi al nocino.<br /> Vendiamo direttamente
-            a privati come anche riforniamo pasticcerie, gelaterie e negozi.
-            <hr />
-            <i class="fa fa-map-marker" aria-hidden="true"></i> Via Canalbianco sx 10 - Rovigo<br />
-            <i class="fa fa-calendar-o" aria-hidden="true"></i>Uffici: Lun. - Ven. 9 - 17 ~ Negozio: Lun. - Sab. 8 - 18<br />
-            <i class="fa fa-phone" aria-hidden="true"></i> Tel. 0425 474575
-          </small></p>
-  			</div>
-      </div><!-- .row -->
+      <section>
+        <div class="container">
+          <div class="row sitemap-menu">
+      			<div class="col-md-8">
+              <div class="row">
+                <div class="col-md-3">
+        					<div class="menu_title mt16 mb8">Azienda</div>
+        					<ul class="list-unstyled">
+        						<li>Campagna</li>
+        						<li>Impatto ambientale</li>
+        						<li>Noceti</li>
+        					</ul>
+                </div>
+                <div class="col-md-3">
+        					<div class="menu_title mt16 mb8">Prodotti</div>
+        					<ul class="list-unstyled">
+        						<li>Esempio</li>
+        						<li>a</li>
+        					</ul>
+                </div>
+                <div class="col-md-3">
+        					<div class="menu_title mt16 mb8">Clienti</div>
+        					<ul class="list-unstyled">
+        						<li>Privati</li>
+        						<li>Gruppi d'Acquisto</li>
+        						<li>Ristorazione</li>
+        						<li>Aziende</li>
+        					</ul>
+                </div>
+        				<div class="col-md-3">
+        					<div class="menu_title mt16 mb8">Contatti</div>
+        					<ul class="list-unstyled">
+        						<li>Dove siamo</li>
+        						<li>Assistenza</li>
+        					</ul>
+                </div>
+              </div>
+      			</div>
+      			<div class="col-md-4">
+      				<div class="menu_title mt16 mb8">Azienda Agricola Valier</div>
+      				<p><small>
+                Coltiviamo con passione le nostre noci e ne ricaviamo prodotti unici:
+                dalla crema all'olio, dai canditi al nocino.<br /> Vendiamo direttamente
+                a privati come anche riforniamo pasticcerie, gelaterie e negozi.
+                <hr />
+                <i class="fa fa-map-marker" aria-hidden="true"></i> Via Canalbianco sx 10 - Rovigo<br />
+                <i class="fa fa-calendar-o" aria-hidden="true"></i>Uffici: Lun. - Ven. 9 - 17 ~ Negozio: Lun. - Sab. 8 - 18<br />
+                <i class="fa fa-phone" aria-hidden="true"></i> Tel. 0425 474575
+              </small></p>
+      			</div>
+          </div><!-- .row -->
+        </div>
+      </section>
     </div>
   </xpath>
 </template>
@@ -260,9 +263,22 @@
       <div class="pull-left" itemscope="itemscope" itemtype="http://schema.org/Organization">
           All right reserved &amp;copy; <span t-field="res_company.name" itemprop="name">Azienda Agricola Valier s.s. soc. agr. </span> Partita IVA e C.F. 01353530296
       </div>
-      </div>
+    </div>
   </xpath>
 </template>
+
+<!-- Hide the Search box on product pages -->
+<template id="hide_search" name="Search hidden fields" inherit_id="website_sale.search">
+  <xpath expr="//form[@method='get']" position="replace">
+  </xpath>
+</template>
+
+<!-- Hide the Customize Theme item in the backend Customize menu -->
+<template id="theme_customize" inherit_id="website_less.user_navbar" >
+  <xpath expr="//li[@id='theme_customize']" position="replace">
+  </xpath>
+</template>
+
 
 	</data>
 </openerp>
