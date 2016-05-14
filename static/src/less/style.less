@@ -73,6 +73,16 @@ azzurro: 174c4e
 	padding: 0 10px;
 	margin: 0 5px;
 }
+#custom-header {
+	position: fixed;
+  width: 100%;
+	height: 110px;
+  z-index: 10;
+	background-color: rgba(255,255,255,0.8);
+}
+#wrapwrap>header+main>#wrap>:first-child, #wrapwrap>header+main>:not(#wrap) {
+  padding-top: 110px;
+}
 #custom-header .nav-language > li {
 	float:left;
 	border-right: 1px solid #ffd97c;
@@ -156,7 +166,7 @@ h2 {
 	font-size: 13px;
 }
 .sitemap-menu .menu_title {
-	font-size: 20px;
+	font-size: 22px;
 	font-weight: 300;
 	font-family: 'Yanone Kaffeesatz',Arial;
 	text-transform: uppercase;
@@ -165,7 +175,25 @@ h2 {
 	margin-left: 10px;
 }
 .fa {
-    padding: 0 5px;
+  padding: 0 5px;
+}
+
+.oe_product section {
+	padding: 0px 15px 0px 10px;
+	min-height: 45px;
+	background: lighten(#ffd97c, 10%);
+}
+.oe_product .product_price {
+  padding: 13px 0;
+  position: relative;
+  float: right;
+}
+.oe_product_cart h5 {
+	font-size: 22px;
+  float: left;
+}
+.oe_product_cart h5 a {
+  font-weight: 300;
 }
 
 .btn-default {}

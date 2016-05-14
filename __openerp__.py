@@ -19,8 +19,6 @@
     'website_blog',
     'website_legal_page',
     'website_crm_privacy_policy',
-    'website_sale_require_legal',
-    'website_sale_require_login',
     'website_signup_legal_page_required',
     'snippet_google_map',
 ],
