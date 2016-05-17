@@ -4,7 +4,6 @@
 
 <!-- Customize header  -->
 <template id="header" inherit_id="website.layout" name="Custom Header">
-	<!-- Assign an id  -->
 	<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
 		<attribute name="id">custom-header</attribute>
 	</xpath>
@@ -27,7 +26,7 @@
           </li>
         </ul>
 				<ul class="nav nav-tools">
-          <!--
+        <!--
           <li class="ico ico-address">
             <a href="contatti/dove-siamo/" title="Dove siamo">Via Canalbianco sx, 10 | Borsea (RO)</a>
           </li>
@@ -124,7 +123,7 @@
   </xpath>
 </template>
 
-<!-- Hide price and add to cart button on single product pages for non-italian language pages -->
+<!-- Hide price and add to cart buttons on single product pages for non-italian language pages -->
 <template id="product" inherit_id="website_sale.product" active="True" customize_show="False" name="Valier Product">
   <xpath expr="//a[@id='add_to_cart']" position="replace">
     <t t-if="lang == 'it_IT'">
@@ -244,13 +243,6 @@
   </xpath>
 </template>
 
-<!-- Add legal advice after copyright and company name -->
-<!--<template id="legal_advice_link_custom" inherit_id="website_legal_page.legal_advice_link" name="Custom legal advice Link">
-    <xpath expr="//footer//div/span[@t-field='res_company.name']" position="after">
-        <span> - <a href="/page/legal">Legal advice</a></span>
-    </xpath>
-</template> -->
-
 <!-- Hide the Odoo logo on footer -->
 <template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" name="Hide Footer Copyright">
   <xpath expr="//div[@class='container mt16 mb8']" position="replace">
@@ -273,7 +265,7 @@
   </xpath>
 </template>
 
-<!-- Hide the Customize Theme item in the backend Customize menu -->
+<!-- Hide the Customize Theme item added by website_less -->
 <template id="theme_customize" inherit_id="website_less.user_navbar" >
   <xpath expr="//li[@id='theme_customize']" position="replace">
   </xpath>
