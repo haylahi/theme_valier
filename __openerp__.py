@@ -21,6 +21,6 @@
     'website_crm_privacy_policy',
     'website_signup_legal_page_required',
     'snippet_google_map',
-],
+  ],
 
 }
