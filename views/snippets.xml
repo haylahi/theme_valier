@@ -4,46 +4,39 @@
 
 <template id="custom_footer_sitemap" name="Sitemap Menu">
 	<section class="sitemap-menu">
-    <div class="row">
-			<div class="col-md-8">
-        <div class="col-md-3">
-					<h4 class="mt16">Azienda</h4>
-					<ul class="list-unstyled">
-						<li>Campagna</li>
-						<li>Impatto ambientale</li>
-						<li>Noceti</li>
-					</ul>
-        </div>
-        <div class="col-md-3">
-					<h4 class="mt16">Prodotti</h4>
-					<ul class="list-unstyled">
-						<li>Esempio</li>
-						<li>a</li>
-					</ul>
-        </div>
-        <div class="col-md-3">
-					<h4 class="mt16">Clienti</h4>
-					<ul class="list-unstyled">
-						<li>Privati</li>
-						<li>Gruppi d'Acquisto</li>
-						<li>Ristorazione</li>
-						<li>Aziende</li>
-					</ul>
-        </div>
-				<div class="col-md-3">
-					<h4 class="mt16">Contatti</h4>
-					<ul class="list-unstyled">
-						<li>Dove siamo</li>
-						<li>Assistenza</li>
-					</ul>
-        </div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="menu_title mt16 mb8">Azienda</div>
+				<ul class="list-unstyled">
+					<li><a href="#">Campagna</a></li>
+					<li><a href="#">Impatto ambientale</a></li>
+					<li><a href="#">Noceti</a></li>
+				</ul>
 			</div>
-			<div class="col-md-4">
-				<h4>AZIENDA AGRICOLA VALIER</h4>
-				<hr />
-				<small>Una realtà giovane ed affidabile che propone prodotti ricercati e raffinati, attenta all'impatto ambientale etc etc</small>
+			<div class="col-md-3">
+				<div class="menu_title mt16 mb8">Prodotti</div>
+				<ul class="list-unstyled">
+					<li><a href="#">Esempio</a></li>
+					<li><a href="#">a</a></li>
+				</ul>
 			</div>
-    </div><!-- .row -->
+			<div class="col-md-3">
+				<div class="menu_title mt16 mb8">Clienti</div>
+				<ul class="list-unstyled">
+					<li><a href="#">Privati</a></li>
+					<li><a href="#">Gruppi d'Acquisto</a></li>
+					<li><a href="#">Ristorazione</a></li>
+					<li><a href="#">Aziende</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3">
+				<div class="menu_title mt16 mb8">Contatti</div>
+				<ul class="list-unstyled">
+					<li><a href="#">Dove siamo</a></li>
+					<li><a href="#">Assistenza</a></li>
+				</ul>
+			</div>
+		</div><!-- .row -->
 	</section>
 </template>
 

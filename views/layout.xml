@@ -2,15 +2,14 @@
 <openerp>
   <data>
 
-<!-- Customize header  -->
+<!-- Customize header adding on top of the site the Cart and Log in/out items -->
 <template id="header" inherit_id="website.layout" name="Custom Header">
 	<xpath expr="//div[@id='wrapwrap']/header" position="attributes">
 		<attribute name="id">custom-header</attribute>
 	</xpath>
-	<!-- Add on top of site the Cart and Log in/out items -->
 	<xpath expr="//div[@id='wrapwrap']/header/div" position="before">
 		<t t-set="website_sale_order" t-value="website.sale_get_order()"/>
-		<div class="navbar-static-first">
+		<div class="navbar-static-meta">
 			<div class="container">
         <ul class="nav nav-language" t-if="(request.website_multilang and len(languages) &gt; 1) or editable">
           <li style="margin-right: -10px;"><i class="fa fa-flag"></i></li>
@@ -26,14 +25,6 @@
           </li>
         </ul>
 				<ul class="nav nav-tools">
-        <!--
-          <li class="ico ico-address">
-            <a href="contatti/dove-siamo/" title="Dove siamo">Via Canalbianco sx, 10 | Borsea (RO)</a>
-          </li>
-  				<li class="ico ico-phone">
-            <a href="tel:+390425474575" title="Chiama l'Az. Agr. Valier" alt="Numero di telefono Valier, eccellenze alimentari">0425 474575</a>
-          </li>
-        -->
 					<li groups="base.group_public">
 						<a t-attf-href="/web/login">
               <i class="fa fa-sign-in"></i>
@@ -194,35 +185,35 @@
                 <div class="col-md-3">
         					<div class="menu_title mt16 mb8">Azienda</div>
         					<ul class="list-unstyled">
-        						<li>Campagna</li>
-        						<li>Impatto ambientale</li>
-        						<li>Noceti</li>
+        						<li><a href="#">Campagna</a></li>
+        						<li><a href="#">Impatto ambientale</a></li>
+        						<li><a href="#">Noceti</a></li>
         					</ul>
                 </div>
                 <div class="col-md-3">
         					<div class="menu_title mt16 mb8">Prodotti</div>
         					<ul class="list-unstyled">
-        						<li>Esempio</li>
-        						<li>a</li>
+        						<li><a href="#">Esempio</a></li>
+        						<li><a href="#">a</a></li>
         					</ul>
                 </div>
                 <div class="col-md-3">
         					<div class="menu_title mt16 mb8">Clienti</div>
         					<ul class="list-unstyled">
-        						<li>Privati</li>
-        						<li>Gruppi d'Acquisto</li>
-        						<li>Ristorazione</li>
-        						<li>Aziende</li>
+        						<li><a href="#">Privati</a></li>
+        						<li><a href="#">Gruppi d'Acquisto</a></li>
+        						<li><a href="#">Ristorazione</a></li>
+        						<li><a href="#">Aziende</a></li>
         					</ul>
                 </div>
         				<div class="col-md-3">
         					<div class="menu_title mt16 mb8">Contatti</div>
         					<ul class="list-unstyled">
-        						<li>Dove siamo</li>
-        						<li>Assistenza</li>
+        						<li><a href="#">Dove siamo</a></li>
+        						<li><a href="#">Assistenza</a></li>
         					</ul>
                 </div>
-              </div>
+              </div><!-- .row -->
       			</div>
       			<div class="col-md-4">
       				<div class="menu_title mt16 mb8">Azienda Agricola Valier</div>
@@ -246,7 +237,7 @@
 <!-- Hide the Odoo logo on footer -->
 <template id="layout_footer_copyright" inherit_id="website.layout_footer_copyright" name="Hide Footer Copyright">
   <xpath expr="//div[@class='container mt16 mb8']" position="replace">
-    <div class="container mt16 mb8">
+    <div class="container footer_copyright mt16 mb8">
       <!-- <div class="pull-right">
         <small>Azienda Agricola Valier s.s. soc. agr. ©<br />
         Partita IVA IT01353530296</small><br />
@@ -268,6 +259,38 @@
 <!-- Hide the Customize Theme item added by website_less -->
 <template id="theme_customize" inherit_id="website_less.user_navbar" >
   <xpath expr="//li[@id='theme_customize']" position="replace">
+  </xpath>
+</template>
+
+<!-- Change css classes for blog title -->
+<template id="blog_post_short_custom" inherit_id="website_blog.blog_post_short" >
+  <xpath expr="//div[@class='col-md-12 mb32 mt16 text-center']" position="replace">
+    <div class="col-md-12 mb32 text-center">
+      <h1 t-field="blog.name"/>
+      <h3 class="text-muted" t-field="blog.subtitle"/>
+    </div>
+  </xpath>
+</template>
+
+<!-- Remove <b> tag from prodcut price -->
+<template id="products_item_custom" inherit_id="website_sale.products_item" >
+  <xpath expr="//div[@class='product_price']" position="replace">
+    <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price" t-if="product.product_variant_ids">
+        <t t-if="(compute_currency(product.lst_price) - product.price) &gt; 0.1">
+          <del class="text-danger" style="white-space: nowrap;" t-field="product.lst_price" t-field-options='{
+            "widget": "monetary",
+            "from_currency": "product.company_id.currency_id",
+            "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+          }'/>&amp;nbsp;
+        </t>
+        <span t-field="product.price" style="white-space: nowrap;"  t-field-options='{
+             "widget": "monetary",
+             "display_currency": "user_id.partner_id.property_product_pricelist.currency_id"
+         }'>
+        </span>
+        <span itemprop="price" style="display:none;" t-esc="product.price"/>
+        <span itemprop="priceCurrency" style="display:none;" t-esc="user_id.partner_id.property_product_pricelist.currency_id.name"/>
+    </div>
   </xpath>
 </template>
 
